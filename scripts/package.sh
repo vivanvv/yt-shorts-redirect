@@ -4,7 +4,8 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 DIST_DIR="$ROOT_DIR/dist"
-VERSION="$(python3 -c 'import json, pathlib; print(json.loads(pathlib.Path("manifest.json").read_text())["version"])' \
+VERSION="$(python3 -c 'import json, pathlib, sys; print(json.loads(pathlib.Path(sys.argv[1]).read_text())["version"])' \
+  "$ROOT_DIR/manifest.json" \
   < /dev/null)"
 ZIP_PATH="$DIST_DIR/yt-shorts-redirect-$VERSION.zip"
 
