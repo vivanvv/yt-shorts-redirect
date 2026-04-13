@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="YouTube Shorts Redirect icon">
+  <rect width="128" height="128" rx="28" fill="#0f172a"/>
+  <rect x="16" y="28" width="96" height="72" rx="18" fill="#ffffff"/>
+  <path d="M51 48 L86 64 L51 80 Z" fill="#ff0033"/>
+  <path
+    d="M84 32
+       C96 36 104 47 104 60
+       C104 72 97 82 86 87"
+    fill="none"
+    stroke="#22c55e"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="10"
+  />
+  <path d="M81 89 L95 91 L89 103" fill="#22c55e"/>
+</svg>

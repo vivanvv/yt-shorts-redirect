@@ -18,7 +18,7 @@ function getRedirectUrl(rawUrl) {
   }
 
   const videoId = match[1];
-  const targetUrl = new URL("/watch", currentUrl.origin);
+  const targetUrl = new URL("/watch", "https://www.youtube.com");
   targetUrl.searchParams.set("v", videoId);
 
   for (const [key, value] of currentUrl.searchParams.entries()) {
@@ -41,6 +41,10 @@ async function redirectShortsTab(tabId, rawUrl) {
 }
 
 function handleNavigation(details) {
+  if (details.frameId !== 0) {
+    return;
+  }
+
   redirectShortsTab(details.tabId, details.url).catch((error) => {
     console.error("Failed to redirect YouTube Shorts URL.", error);
   });
