@@ -1,13 +1,13 @@
 # yt-shorts-redirect
 
-A micro browser extension for Chrome and other Chromium-based browsers that opens an individual YouTube Short in standard watch mode instead of the Shorts viewer.
+A super small browser extension for Chrome and other Chromium-based browsers that redirects YouTube Shorts links from their native Shorts player to the standard YouTube video watch mode.
 
-Useful if you want to watch a specific short but don't want to continuously doomscroll afterwards. 
+Useful if you want to watch a specific short without doomscrolling afterwards. 
 
 
 ## Behaviour
 
-The extension (currently) has one behaviour which is redirecting links that match:
+The extension (currently) has only one behaviour. It redirects links of the form:
 
 ```text
 https://www.youtube.com/shorts/<videoId>
@@ -19,15 +19,21 @@ to:
 https://www.youtube.com/watch?v=<videoId>
 ```
 
+## Install as a Chrome Extension (currently unavailable)
+
+The extension is currently pending approval in the Chrome Web Store. 
+
 
 ## Install locally
 
-This repository can be loaded directly as an unpacked Chrome extension:
+The repository can be loaded directly as an unpacked Chrome extension:
 
-1. Open `chrome://extensions`
-2. Enable `Developer mode`
-3. Click `Load unpacked`
-4. Select this repository folder
+1. Click `Code` then `Download ZIP`
+2. Unzip the folder in your file explorer
+3. Open `chrome://extensions` in your browser
+4. Enable the `Developer mode` toggle
+5. Click the `Load unpacked` button
+6. Select the repository folder you just unzipped
 
 
 ## Methodology
@@ -75,7 +81,7 @@ This creates a ZIP in `dist/` with the extension files at the archive root.
 
 ## Privacy
 
-This extension is intentionally minimal:
+The extension is intentionally minimal:
 
 - No authentication
 - No remote code
