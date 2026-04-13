@@ -2,7 +2,7 @@
 // @name         YouTube Shorts Redirect
 // @namespace    https://github.com/vivanvv/yt-shorts-redirect
 // @author       vivanvv
-// @version      1.0
+// @version      1.0.1
 // @description  Redirect YouTube Shorts URLs to normal watch URLs.
 // @match        https://www.youtube.com/*
 // @homepageURL  https://github.com/vivanvv/yt-shorts-redirect
