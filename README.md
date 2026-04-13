@@ -1,6 +1,6 @@
 # yt-shorts-redirect
 
-A micro Chrome extension that opens an individual YouTube Short in standard watch mode instead of the Shorts viewer.
+A micro browser extension for Chrome and other Chromium-based browsers that opens an individual YouTube Short in standard watch mode instead of the Shorts viewer.
 
 Useful if you want to watch a specific short but don't want to continuously doomscroll afterwards. 
 
