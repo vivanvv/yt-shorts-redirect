@@ -10,7 +10,6 @@
     "128": "icons/icon-128.png"
   },
   "permissions": [
-    "tabs",
     "webNavigation"
   ],
   "host_permissions": [
