@@ -2,7 +2,7 @@
 // @name         YouTube Shorts Redirect
 // @namespace    https://github.com/vivanvv/yt-shorts-redirect
 // @author       vivanvv
-// @version      1.0.1
+// @version      1.0.2
 // @description  Redirect YouTube Shorts URLs to normal watch URLs.
 // @match        https://www.youtube.com/*
 // @homepageURL  https://github.com/vivanvv/yt-shorts-redirect
@@ -15,12 +15,12 @@
 (function () {
   "use strict";
 
-  function redirectIfShorts() {
-    const match = window.location.pathname.match(/^\/shorts\/([^/?#]+)/);
-    if (!match) return;
+  function getRedirectUrl() {
+    const currentUrl = new URL(window.location.href);
+    const match = currentUrl.pathname.match(/^\/shorts\/([^/?#]+)/);
+    if (!match) return null;
 
     const videoId = match[1];
-    const currentUrl = new URL(window.location.href);
     const targetUrl = new URL("/watch", currentUrl.origin);
 
     targetUrl.searchParams.set("v", videoId);
@@ -32,29 +32,31 @@
     }
 
     targetUrl.hash = currentUrl.hash;
-
-    if (window.location.href !== targetUrl.href) {
-      window.location.replace(targetUrl.href);
-    }
+    return targetUrl.href;
   }
 
-  const originalPushState = history.pushState;
-  const originalReplaceState = history.replaceState;
+  function redirectIfShorts() {
+    const targetUrl = getRedirectUrl();
+    if (!targetUrl || window.location.href === targetUrl) return;
 
-  history.pushState = function (...args) {
-    const result = originalPushState.apply(this, args);
+    window.location.replace(targetUrl);
+  }
+
+  let lastHref = window.location.href;
+
+  function handleUrlChange() {
+    const currentHref = window.location.href;
+    if (currentHref === lastHref) return;
+    lastHref = currentHref;
     redirectIfShorts();
-    return result;
-  };
+  }
 
-  history.replaceState = function (...args) {
-    const result = originalReplaceState.apply(this, args);
-    redirectIfShorts();
-    return result;
-  };
+  window.addEventListener("popstate", handleUrlChange, true);
+  window.addEventListener("hashchange", handleUrlChange, true);
+  window.addEventListener("yt-navigate-start", handleUrlChange, true);
+  window.addEventListener("yt-navigate-finish", handleUrlChange, true);
+  window.addEventListener("pageshow", handleUrlChange, true);
 
-  window.addEventListener("popstate", redirectIfShorts);
-  window.addEventListener("yt-navigate-finish", redirectIfShorts);
-
+  setInterval(handleUrlChange, 250);
   redirectIfShorts();
 })();
