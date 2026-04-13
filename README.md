@@ -13,7 +13,7 @@ The extension (currently) has one behaviour which is redirecting links that matc
 https://www.youtube.com/shorts/<videoId>
 ```
 
-into:
+to:
 
 ```text
 https://www.youtube.com/watch?v=<videoId>
