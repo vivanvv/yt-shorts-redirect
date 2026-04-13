@@ -1,46 +1,73 @@
 # yt-shorts-redirect
 
-Chrome extension that redirects YouTube Shorts URLs to the normal `watch` page.
+A small Chrome extension that turns YouTube Shorts URLs into standard YouTube watch URLs.
 
-## Files
+If you open a link like:
 
-- `manifest.json`: Extension config and permissions.
-- `background.js`: Background service worker that watches YouTube navigations and redirects Shorts URLs.
-- `icons/`: Extension icons used by Chrome and the Chrome Web Store.
-- `scripts/package.sh`: Creates the upload ZIP for the Chrome Web Store.
-- `store/listing.md`: Draft store copy and submission notes.
+```text
+https://www.youtube.com/shorts/<videoId>
+```
 
-## Load locally
+the extension redirects it to:
 
-1. Open `chrome://extensions`.
-2. Enable **Developer mode**.
-3. Click **Load unpacked**.
-4. Select this repository folder.
+```text
+https://www.youtube.com/watch?v=<videoId>
+```
 
-## Package for upload
+Query parameters and URL fragments are preserved where possible.
 
-Run:
+## Why use it
+
+- Opens Shorts in the normal YouTube player
+- Works with direct page loads and YouTube's in-app navigation
+- Keeps the extension lightweight and focused on one job
+
+## Install locally
+
+This repository can be loaded directly as an unpacked Chrome extension:
+
+1. Open `chrome://extensions`
+2. Enable `Developer mode`
+3. Click `Load unpacked`
+4. Select this repository folder
+
+## How it works
+
+The extension uses a Manifest V3 background service worker to watch YouTube navigations and redirect Shorts URLs before you continue browsing.
+
+It listens for:
+
+- `webNavigation.onCommitted` for full page navigations
+- `webNavigation.onHistoryStateUpdated` for YouTube's single-page app route changes
+
+The redirect logic lives in `background.js`.
+
+## Project structure
+
+- `manifest.json`: Chrome extension manifest
+- `background.js`: Redirect logic
+- `icons/`: Extension icons
+- `scripts/package.sh`: Creates a ZIP ready for Chrome Web Store upload
+
+## Development
+
+To create a packaged build for distribution:
 
 ```sh
 ./scripts/package.sh
 ```
 
-This creates a release ZIP in `dist/` with `manifest.json` at the root, ready for Chrome Web Store upload.
+This creates a ZIP in `dist/` with the extension files at the archive root.
 
-## How it works
+## Privacy
 
-The extension listens for YouTube navigations at the browser level:
+This extension is intentionally minimal:
 
-- `onCommitted` for normal page loads.
-- `onHistoryStateUpdated` for in-page YouTube SPA navigations.
+- No authentication
+- No remote code
+- No analytics or tracking
+- No data collection in the current implementation
 
-When a `https://www.youtube.com/shorts/<videoId>` URL is visited, it redirects the tab to `https://www.youtube.com/watch?v=<videoId>` and preserves any existing query params and hash.
+## License
 
-## Publish checklist
-
-1. Load the extension locally and test it.
-2. Run `./scripts/package.sh`.
-3. Upload the generated ZIP in the Chrome Web Store dashboard.
-4. Fill in the listing/privacy fields using `store/listing.md` as a draft.
-5. Add at least one store screenshot.
-6. Submit for review.
+[MIT](LICENSE)
