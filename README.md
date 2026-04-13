@@ -1,4 +1,4 @@
-# yt-shorts-redirect
+# YouTube Shorts Redirect
 
 A super small browser extension for Chrome and other Chromium-based browsers that redirects YouTube Shorts links from their native player to the standard YouTube video watch mode.
 
