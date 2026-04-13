@@ -7,65 +7,49 @@
     <style>
       :root {
         color-scheme: light;
-        --bg: #f7f4ef;
-        --card: #fffdf9;
-        --text: #1c1917;
-        --muted: #57534e;
-        --border: #e7e0d4;
-        --accent: #c2410c;
-      }
-
-      * {
-        box-sizing: border-box;
+        --bg: #f5f5f7;
+        --text: #111827;
+        --muted: #6b7280;
+        --accent: #374151;
       }
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
-        background: linear-gradient(180deg, #f3efe7 0%, var(--bg) 100%);
+        font-family: Roboto, "Segoe UI", Arial, sans-serif;
+        font-size: 1.1rem;
+        background: var(--bg);
         color: var(--text);
       }
 
       main {
-        max-width: 760px;
+        max-width: 720px;
         margin: 0 auto;
-        padding: 48px 20px 80px;
-      }
-
-      .card {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 18px;
-        padding: 32px;
-        box-shadow: 0 18px 50px rgba(28, 25, 23, 0.08);
+        padding: 44px 22px 70px;
       }
 
       h1, h2 {
-        line-height: 1.15;
-        margin: 0 0 16px;
+        line-height: 1.25;
+        margin: 0 0 12px;
       }
 
       h1 {
-        font-size: clamp(2rem, 4vw, 3rem);
+        font-size: 1.87rem;
       }
 
       h2 {
-        font-size: 1.2rem;
-        margin-top: 28px;
+        font-size: 1.1rem;
+        margin-top: 26px;
       }
 
-      p, li {
-        font-size: 1rem;
-        line-height: 1.7;
+      p {
+        margin: 0 0 12px;
+        font-size: 1.045rem;
+        line-height: 1.6;
         color: var(--text);
       }
 
       .muted {
         color: var(--muted);
-      }
-
-      ul {
-        padding-left: 22px;
       }
 
       a {
@@ -74,61 +58,45 @@
 
       code {
         font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-        background: #f3ece2;
-        padding: 0.1em 0.35em;
-        border-radius: 6px;
+        background: #e5e7eb;
+        padding: 0.1em 0.34em;
+        border-radius: 3px;
       }
     </style>
   </head>
   <body>
     <main>
-      <div class="card">
-        <h1>Privacy Policy</h1>
-        <p class="muted">For the YouTube Shorts Redirect browser extension.</p>
+      <h1>Privacy Policy</h1>
+      <p class="muted">For the YouTube Shorts Redirect browser extension.</p>
 
-        <h2>Summary</h2>
-        <p>
-          YouTube Shorts Redirect does not collect, store, transmit, sell, or share
-          personal data.
-        </p>
+      <h2>What the extension does</h2>
+      <p>
+        YouTube Shorts Redirect runs locally in the browser and redirects
+        <code>https://www.youtube.com/shorts/&lt;videoId&gt;</code> URLs to
+        <code>https://www.youtube.com/watch?v=&lt;videoId&gt;</code>.
+      </p>
 
-        <h2>How the extension works</h2>
-        <p>
-          The extension runs locally in the browser. When a user opens a YouTube
-          Shorts URL such as <code>https://www.youtube.com/shorts/&lt;videoId&gt;</code>,
-          the extension redirects that page to the standard YouTube watch URL
-          format <code>https://www.youtube.com/watch?v=&lt;videoId&gt;</code>.
-        </p>
+      <h2>Data collection</h2>
+      <p>
+        This extension does not collect, store, transmit, sell, or share
+        personal data.
+      </p>
 
-        <h2>Data collection and use</h2>
-        <p>
-          The extension does not collect or retain personal information, account
-          information, browsing history for external use, authentication data,
-          financial information, health information, personal communications,
-          location data, or user-generated content.
-        </p>
-        <p>
-          The extension only reads the current YouTube page URL locally in order
-          to determine whether it should perform the redirect.
-        </p>
+      <h2>Data use</h2>
+      <p>
+        The extension only reads the current YouTube URL locally to determine
+        whether a redirect should happen.
+      </p>
 
-        <h2>Data sharing</h2>
-        <p>
-          No user data is sold, transferred, or shared with third parties.
-        </p>
+      <h2>Data sharing</h2>
+      <p>
+        No user data is sold, transferred, or shared with third parties.
+      </p>
 
-        <h2>Remote code and tracking</h2>
-        <p>
-          The extension does not use remote code, analytics, advertising, or
-          third-party tracking.
-        </p>
-
-        <h2>Changes</h2>
-        <p>
-          If the extension's data practices change in the future, this policy
-          will be updated before those changes are released.
-        </p>
-      </div>
+      <h2>Remote code</h2>
+      <p>
+        The extension does not use remote code.
+      </p>
     </main>
   </body>
   </html>
