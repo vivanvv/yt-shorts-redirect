@@ -28,7 +28,7 @@ The extension is currently pending approval in the Chrome Web Store.
 
 The repository can be loaded directly as an unpacked Chrome extension:
 
-1. Click `Code` then `Download ZIP`
+1. Click the green `Code` button then `Download ZIP`
 2. Unzip the folder in your file manager
 3. Open `chrome://extensions` in your browser
 4. Enable the `Developer mode` toggle
