@@ -19,12 +19,8 @@ to:
 https://www.youtube.com/watch?v=<videoId>
 ```
 
-## Install as a Chrome Extension (currently unavailable)
 
-The extension is currently pending approval in the Chrome Web Store. 
-
-
-## Install via Chrome Web Store
+## Install via the Chrome Web Store
 
 [YouTube Shorts Redirect](https://chromewebstore.google.com/detail/youtube-shorts-redirect/abnmjlhlkencbjhjhehlmefonnkbmmeb)
 
