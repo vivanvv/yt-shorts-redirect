@@ -24,6 +24,14 @@ https://www.youtube.com/watch?v=<videoId>
 The extension is currently pending approval in the Chrome Web Store. 
 
 
+## Install via Chrome Web Store
+
+[YouTube Shorts Redirect](https://chromewebstore.google.com/detail/youtube-shorts-redirect/abnmjlhlkencbjhjhehlmefonnkbmmeb)
+
+1. Open the Chrome Web Store listing
+2. Click `Get` > `Add extension`
+
+
 ## Install locally
 
 The repository can be loaded directly as an unpacked Chrome extension:
