@@ -37,7 +37,16 @@ async function redirectShortsTab(tabId, rawUrl) {
     return;
   }
 
-  await chrome.tabs.update(tabId, { url: targetUrl });
+  await chrome.scripting.executeScript({
+    target: {
+      tabId,
+      frameIds: [0]
+    },
+    func: (url) => {
+      window.location.replace(url);
+    },
+    args: [targetUrl]
+  });
 }
 
 function handleNavigation(details) {

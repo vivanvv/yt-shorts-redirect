@@ -42,7 +42,7 @@ The repository can be loaded directly as an unpacked Chrome extension:
 
 ## Methodology
 
-The extension uses a Manifest V3 background service worker to watch YouTube navigations and redirect Shorts URLs before you continue browsing.
+The extension uses a Manifest V3 background service worker to watch YouTube navigations and redirect Shorts URLs before you continue browsing. Redirects replace the current history entry, so pressing Back does not return to the Shorts URL and trigger the same redirect again.
 
 It listens for:
 
